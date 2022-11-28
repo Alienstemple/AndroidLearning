@@ -7,20 +7,23 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/myTextView"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="248dp"
+        android:text="My Text Vew"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="58dp"
+    <Button
+        android:id="@+id/myButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="292dp" />
+        android:layout_marginStart="158dp"
+        android:layout_marginBottom="351dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
