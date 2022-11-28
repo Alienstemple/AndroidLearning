@@ -10,18 +10,21 @@
         android:id="@+id/myTextView"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:layout_marginStart="168dp"
-        android:layout_marginTop="248dp"
+        android:layout_marginStart="164dp"
+        android:layout_marginTop="303dp"
+        android:layout_marginBottom="20dp"
         android:text="My Text Vew"
+        app:layout_constraintBottom_toTopOf="@+id/myButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/myButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="158dp"
-        android:layout_marginBottom="351dp"
+        android:layout_marginStart="172dp"
+        android:layout_marginBottom="240dp"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
