@@ -20,22 +20,49 @@
 
     <TextView
         android:id="@+id/phone"
-        android:layout_width="122dp"
-        android:layout_height="20dp"
+        android:layout_width="176dp"
+        android:layout_height="38dp"
         android:layout_marginBottom="90dp"
         android:text="@string/phone"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/login"
-        android:layout_width="122dp"
-        android:layout_height="20dp"
+        android:layout_width="176dp"
+        android:layout_height="39dp"
         android:layout_marginBottom="4dp"
         android:text="@string/login"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/callButton"
+        android:layout_width="47dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="90dp"
+        android:background="#4CAF50"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/phone"
+        app:srcCompat="@android:drawable/ic_menu_call" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="42dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="90dp"
+        android:background="#FFEB3B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/callButton"
+        app:srcCompat="@android:drawable/ic_dialog_email" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

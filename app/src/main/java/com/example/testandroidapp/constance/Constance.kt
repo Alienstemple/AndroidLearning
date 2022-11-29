@@ -12,4 +12,6 @@ object Constance {
     const val NAME = "name"
     const val NAME2 = "name2"
     const val NAME3 = "name3"
+
+    const val SAMPLE_PHONE = "+79819998866"
 }
