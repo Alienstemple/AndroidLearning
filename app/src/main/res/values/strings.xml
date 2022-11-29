@@ -5,4 +5,6 @@
     <string name="login" translatable="false">Login</string>
     <string name="name" translatable="false">Имя</string>
     <string name="name2" translatable="false">Фамилия</string>
+    <string name="phone" translatable="false">Телефон</string>
+    <string name="email" translatable="false">email</string>
 </resources>
