@@ -7,22 +7,24 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/SignUpButton"
+        android:id="@+id/SignInButton"
         android:layout_width="313dp"
         android:layout_height="41dp"
         android:layout_marginBottom="4dp"
-        android:text="SIGN UP"
-        app:layout_constraintBottom_toTopOf="@+id/signInButton"
-        app:layout_constraintEnd_toEndOf="@+id/signInButton"
+        android:onClick="onClickSignIn"
+        android:text="@string/sign_in"
+        app:layout_constraintBottom_toTopOf="@+id/signUpButton"
+        app:layout_constraintEnd_toEndOf="@+id/signUpButton"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/signInButton" />
+        app:layout_constraintStart_toStartOf="@+id/signUpButton" />
 
     <Button
-        android:id="@+id/signInButton"
+        android:id="@+id/signUpButton"
         android:layout_width="313dp"
         android:layout_height="41dp"
         android:layout_marginBottom="90dp"
-        android:text="SIGN IN"
+        android:onClick="onClickSignUp"
+        android:text="@string/sign_up"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.622"
@@ -34,8 +36,8 @@
         android:layout_marginBottom="4dp"
         android:hint="@string/login"
         android:textColorHint="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/SignUpButton"
-        app:layout_constraintEnd_toEndOf="@+id/SignUpButton"
-        app:layout_constraintStart_toStartOf="@+id/SignUpButton" />
+        app:layout_constraintBottom_toTopOf="@+id/SignInButton"
+        app:layout_constraintEnd_toEndOf="@+id/SignInButton"
+        app:layout_constraintStart_toStartOf="@+id/SignInButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
