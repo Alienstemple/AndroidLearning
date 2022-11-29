@@ -7,24 +7,35 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/signInButton"
-        android:layout_width="313dp"
-        android:layout_height="41dp"
-        android:text="SIGN IN"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.408"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SignUpButton" />
-
-    <Button
         android:id="@+id/SignUpButton"
         android:layout_width="313dp"
         android:layout_height="41dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginBottom="4dp"
         android:text="SIGN UP"
+        app:layout_constraintBottom_toTopOf="@+id/signInButton"
+        app:layout_constraintEnd_toEndOf="@+id/signInButton"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/signInButton" />
+
+    <Button
+        android:id="@+id/signInButton"
+        android:layout_width="313dp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="90dp"
+        android:text="SIGN IN"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.408"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.622"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="0dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="4dp"
+        android:hint="@string/login"
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/SignUpButton"
+        app:layout_constraintEnd_toEndOf="@+id/SignUpButton"
+        app:layout_constraintStart_toStartOf="@+id/SignUpButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
