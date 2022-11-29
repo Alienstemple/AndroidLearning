@@ -5,57 +5,33 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.TextView
+import com.example.testandroidapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    lateinit var bindingClass: ActivityMainBinding
+
+    private var login: String = "empty"
+    private var name: String = "empty"
+    private var name2: String = "empty"
+    private var email: String = "empty"
+    private var phone: String = "empty"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.d("MainActLog", "onCreate")
-        var tx = findViewById<TextView>(R.id.myTextView)
-        var bt = findViewById<Button>(R.id.myButton)
-        bt.setOnClickListener {
-            tx.text = "Button pressed!"
-            Log.d("MainActLog", "Button pressed")
-            val secondScreen = Intent(this, SecondScreen::class.java)
-            startActivity(secondScreen)
-
-            // startActivityForResult
-        }
+        bindingClass = ActivityMainBinding.inflate(layoutInflater)  // view binding was added, here find layout
+        setContentView(bindingClass.root)  // set MainActivity
     }
 
-    override fun onStart() {
-        super.onStart()
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+    }
+    fun onClickSignIn(view: View) {
+
     }
 
-    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        super.onRestoreInstanceState(savedInstanceState)
-    }
+    fun onClickSignUp(view: View) {
 
-    override fun onResume() {
-        super.onResume()
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-    }
-
-    override fun onStop() {
-        super.onStop()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-    }
-
-    fun dataToActivity(view : View) {
-        val int = Intent(Intent.ACTION_SEND)
-        int.putExtra(Intent.EXTRA_EMAIL, "arr")
-        startActivity(int)
     }
 }

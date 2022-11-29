@@ -6,27 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/myTextView"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="164dp"
-        android:layout_marginTop="303dp"
-        android:layout_marginBottom="20dp"
-        android:text="My Text Vew"
-        app:layout_constraintBottom_toTopOf="@+id/myButton"
+    <Button
+        android:id="@+id/signInButton"
+        android:layout_width="313dp"
+        android:layout_height="41dp"
+        android:text="SIGN IN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.408"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/SignUpButton" />
 
     <Button
-        android:id="@+id/myButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="172dp"
-        android:layout_marginBottom="240dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:id="@+id/SignUpButton"
+        android:layout_width="313dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="92dp"
+        android:text="SIGN UP"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.408"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
