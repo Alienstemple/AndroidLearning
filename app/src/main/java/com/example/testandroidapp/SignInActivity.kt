@@ -14,12 +14,14 @@ class SignInActivity : AppCompatActivity() {
     lateinit var signInBinding: ActivitySignInBinding
     private var greetingsList = listOf("Привет 1", "Добрый день", "Хорошего дня", "Привет 2", "Привет 3")
 
+    val userMap = mapOf("User1 information" to "user1", "User 2 information" to "user2")
+
     override fun onCreate(savedInstanceState: Bundle?) {  // передали данные в Bundle
         super.onCreate(savedInstanceState)
         signInBinding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(signInBinding.root)
 
-        // Random Greeting. Changes, when Activity killed // TODO onSaveIntentState
+        // Random Greeting. Changes, when Activity killed
         signInBinding.greetingTextView.text = greetingsList.get(Random.nextInt(0, greetingsList.size))
 
         val login = intent.getStringExtra(Constance.LOGIN).toString()  // getIntent set login from ActivityMain to login TextView
@@ -39,5 +41,19 @@ class SignInActivity : AppCompatActivity() {
             setResult(RESULT_OK, intent)
             finish()
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        val greetingText = signInBinding.greetingTextView.text
+        outState?.putCharSequence("savedText", greetingText)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+
+        val greetingText = savedInstanceState?.getCharSequence("savedText")
+        signInBinding.greetingTextView.text = greetingText
     }
 }
