@@ -48,6 +48,7 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "Login from text input: " + login)
 
         if (userMap.containsKey(login)) {
+            Log.d(TAG, "Login found in our Map: " + login)
             val intent = Intent(this, SignInActivity::class.java)
             intent.putExtra(Constance.SIGN_STATE, Constance.SIGN_IN_STATE)
             intent.putExtra(Constance.LOGIN, login)
@@ -55,6 +56,12 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra(Constance.NAME2, userMap[login]?.name2)
             intent.putExtra(Constance.EMAIL, userMap[login]?.email)
             intent.putExtra(Constance.PHONE, userMap[login]?.phone)
+            launcher?.launch(intent)
+        } else {
+            Log.d(TAG, "Login NOT found: " + login)
+            val intent = Intent(this, BadSignInActivity::class.java)
+            intent.putExtra(Constance.SIGN_STATE, Constance.SIGN_IN_STATE)
+            intent.putExtra(Constance.LOGIN, login)
             launcher?.launch(intent)
         }
     }
