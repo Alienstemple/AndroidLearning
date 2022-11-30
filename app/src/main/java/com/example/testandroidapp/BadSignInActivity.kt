@@ -13,6 +13,6 @@ class BadSignInActivity : AppCompatActivity() {
         badSignInBinding = ActivityBadSignInBinding.inflate(layoutInflater)
         setContentView(badSignInBinding.root)
         val login = intent.getStringExtra(Constance.LOGIN).toString()
-        badSignInBinding.alertBadSignIn.text.toString()  // TODO concat with login
+        badSignInBinding.alertBadSignIn.text
     }
 }

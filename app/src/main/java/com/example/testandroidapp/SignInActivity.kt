@@ -19,7 +19,7 @@ class SignInActivity : AppCompatActivity() {
         signInBinding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(signInBinding.root)
 
-        // Random Greeting. Changes, when Activity killed
+        // Random Greeting.
         signInBinding.greetingTextView.text = greetingsList.get(Random.nextInt(0, greetingsList.size))
 
         val login = intent.getStringExtra(Constance.LOGIN).toString()  // getIntent set login from ActivityMain to login TextView
