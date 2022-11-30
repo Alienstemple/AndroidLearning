@@ -7,4 +7,6 @@
     <string name="name2" translatable="false">Фамилия</string>
     <string name="phone" translatable="false">Телефон</string>
     <string name="email" translatable="false">email</string>
+    <string name="back" translatable="false">Назад</string>
+    <string name="default_greeting" translatable="false">Приветствие по умолчанию</string>
 </resources>
