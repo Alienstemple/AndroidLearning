@@ -14,8 +14,6 @@ class SignInActivity : AppCompatActivity() {
     lateinit var signInBinding: ActivitySignInBinding
     private var greetingsList = listOf("Привет 1", "Добрый день", "Хорошего дня", "Привет 2", "Привет 3")
 
-    val userMap = mapOf("User1 information" to "user1", "User 2 information" to "user2")
-
     override fun onCreate(savedInstanceState: Bundle?) {  // передали данные в Bundle
         super.onCreate(savedInstanceState)
         signInBinding = ActivitySignInBinding.inflate(layoutInflater)

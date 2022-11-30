@@ -9,9 +9,10 @@ object Constance {
     const val REQUEST_CODE_SIGN_UP = 2121
 
     const val LOGIN = "login"
-    const val NAME = "name"
+    const val NAME = "name1"
     const val NAME2 = "name2"
-    const val NAME3 = "name3"
+    const val EMAIL = "email"
+    const val PHONE = "phone"
 
     const val SAMPLE_PHONE = "+79819998866"
 }
