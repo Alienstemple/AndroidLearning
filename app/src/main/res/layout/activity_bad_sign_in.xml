@@ -6,14 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".BadSignInActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="167dp"
-        tools:layout_editor_absoluteY="192dp" />
-
     <Button
         android:id="@+id/buttonBackBadSignIn"
         android:layout_width="292dp"
@@ -21,8 +13,8 @@
         android:layout_marginBottom="92dp"
         android:text="@string/back"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/alertBadSignIn"
-        app:layout_constraintStart_toStartOf="@+id/alertBadSignIn" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/alertBadSignIn"
