@@ -4,40 +4,52 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.telephony.SmsManager
 import android.util.Log
-import android.view.View
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.example.testandroidapp.constance.Constance
 import com.example.testandroidapp.databinding.ActivitySignInBinding
+import com.example.testandroidapp.entities.User
 import kotlin.random.Random
 
 class SignInActivity : AppCompatActivity() {
     val TAG = "SignInActLog"
     lateinit var signInBinding: ActivitySignInBinding
-    private var greetingsList = listOf("Привет 1", "Добрый день", "Хорошего дня", "Привет 2", "Привет 3")
+    private var greetingsList =
+        listOf("Здравствуйте", "Добрый день", "Хорошего дня", "Приветcтвую", "Отличного настроения")
+    val userMap = mapOf(
+        "sam" to User("Sam", "Smith", "sam20@mail.com", "+78453330099"),
+        "mark" to User("Mark", "Stark", "mark8@mail.com", "+78457775533"),
+        "kate" to User("Kate", "Fleen", "kate1@mail.com", "+784533388877")
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {  // передали данные в Bundle
         super.onCreate(savedInstanceState)
-        signInBinding = ActivitySignInBinding.inflate(layoutInflater)
+        signInBinding = ActivitySignInBinding.inflate(layoutInflater)   // show our screen
         setContentView(signInBinding.root)
 
         // Random Greeting.
-        signInBinding.greetingTextView.text = greetingsList.get(Random.nextInt(0, greetingsList.size))
+        if (savedInstanceState == null)  // Generate only if ActivityLaunches first time
+            signInBinding.greetingTextView.text =
+                greetingsList[greetingsList.indices.random()]  // Kotlin - style
 
         // initialize variables
-        val login = intent.getStringExtra(Constance.LOGIN).toString()  // getIntent set login from ActivityMain to login TextView
-        val phone = intent.getStringExtra(Constance.PHONE).toString()
-//        val msgText  // TODO
-
+        val login = intent.getStringExtra(Constance.LOGIN)
+            .toString()  // getIntent set login from ActivityMain to login TextView
 
         Log.d(TAG, "Passed from ActivityMain login is " + login)
-        signInBinding.login.text = login
-        signInBinding.phone.text = Constance.SAMPLE_PHONE
+
+        if (userMap.containsKey(login)) {
+            Log.d(TAG, "Login found in our Map: " + login)
+            signInBinding.login.text = login
+            signInBinding.phone.text = userMap[login]?.phone
+            // TODO other fields
+        } else {
+            Log.d(TAG, "Login NOT found: " + login)
+            setResult(RESULT_CANCELED) // return to MainActivity
+            finish()
+        }
 
         signInBinding.callButton.setOnClickListener {
             val dialIntent = Intent(Intent.ACTION_DIAL)
@@ -46,38 +58,16 @@ class SignInActivity : AppCompatActivity() {
         }
 
         signInBinding.buttonBack.setOnClickListener {
-            val intent = Intent()
-            intent.putExtra("key1", "Returned from SignIn")
-            setResult(RESULT_OK, intent)
+            setResult(RESULT_OK)
             finish()
         }
 
         signInBinding.smsButton.setOnClickListener {
-
             checkSmsPermission()
-
-            val testPhone = "+79160630604"
-            val msgText = "Hello! Sample sms text"
-
-            try {
-                val smsManager = SmsManager.getDefault()
-//                smsManager = this.getSystemService(SmsManager::class.java)  // smsManager null!
-//                smsManager = applicationContext.getSystemService(SmsManager::class.java)
-//                smsManager = SmsManager.getDefault()
-
-                val smsIntent = Intent(Intent.ACTION_VIEW)
-                smsIntent.data = Uri.parse("sms:$testPhone")
-                startActivity(smsIntent)
-
-//                smsManager.sendTextMessage(testPhone, null, msgText, null, null)
-
-//                Toast.makeText(applicationContext, "Message Sent", Toast.LENGTH_LONG).show()
-
-            } catch (e: Exception) {
-                Toast.makeText(applicationContext, "Please enter all the data.."+e.message.toString(), Toast.LENGTH_LONG)
-                    .show()
-                Log.d(TAG, "Error while sms sending: ${e.message.toString()}")
-            }
+            val phone: String = signInBinding.phone.toString()
+            val smsIntent = Intent(Intent.ACTION_VIEW)
+            smsIntent.data = Uri.parse("sms:$phone")
+            startActivity(smsIntent)
         }
     }
 
@@ -96,7 +86,11 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun checkSmsPermission() {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.SEND_SMS
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.SEND_SMS), 101)
         }
     }
